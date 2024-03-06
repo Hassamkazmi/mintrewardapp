@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "MintRewardApp",
-    "slug": "MintRewardApp",
+    "slug": "kazmi",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,10 +21,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.hassamkazmi.kazmi"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "4fcd5b56-56a3-4e76-99cc-66de281b0229"
+      }
+    },
+    "owner": "hassamkazmi"
   }
 }
