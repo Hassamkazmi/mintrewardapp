@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 const ChartComponent = () => {
   return (
     <View style={style.header}>
-      <Text style={style.sectionTitle}>Monthly Rewards</Text>
+      <Text style={style.sectionTitle}>Exclusive  Rewards</Text>
 
       <View style={style.outercircle}>
         <View style={style.innercircle}>
@@ -18,11 +18,11 @@ const ChartComponent = () => {
 
 const style = StyleSheet.create({
   outercircle: {
-    borderWidth: 25,
+    borderWidth: 15,
     borderColor: "#000",
     borderRadius: 130, // Numeric value, not string
     width: "60%",
-    height: 250,
+    height: 230,
     borderColor: "#c9ed66",
     marginBottom: 20,
     justifyContent: 'center', // Center content vertically
@@ -34,7 +34,7 @@ const style = StyleSheet.create({
     justifyContent: 'center', // Center content vertically
     alignItems: 'center', // Center content horizontally
     borderRadius: 9999, // Numeric value, not string
-    borderWidth: 25,
+    borderWidth: 15,
     borderColor: "#63f272"
   },
   text: {

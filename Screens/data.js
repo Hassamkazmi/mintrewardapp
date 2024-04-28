@@ -1,0 +1,235 @@
+export default [
+      
+      
+      
+    {
+      "ID": 97,
+      "Name": "Al KARAM",
+      "Description": "The Al Karam Group was founded in March 1986 with a vision to be a provider of innovative textile solutions worldwide.",
+      "Location": "karachi",
+      "PhoneNumber": "+922137130271",
+      "Url": "https://www.alkaramstudio.com/",
+      "CreatedAt": "2024-02-25T21:36:52.677",
+      "UpdatedAt": "2024-02-25T21:36:52.677",
+      "CreatedBy": null,
+      "UpdatedBy": null,
+      "IsActive": true,
+      "color":"#81c5d4",
+      "Status": "available soon",
+      "ImageUrl": "https://hyderi.dolmenmalls.com/wp-content/uploads/2022/04/alkaram-studio.png"
+    },
+  
+    {
+      "ID": 13,
+      "Name": "Food Panda",
+      "Description": "Foodpanda is a simple service to order food from a variety of restaurants online.",
+      "Location": "Berlin",
+      "PhoneNumber": "021-432212122",
+      "Url": "https://www.foodpanda.pk/?utm_source=google&utm_medium=cpc&utm_campaign=17130031807&sem_tracker=17130031807&gad_source=1&gclid=CjwKCAiAlcyuBhBnEiwAOGZ2SzJJueH7h8XjlhDDcmRYuMYUMs_1DUawEcUbT78VydNZ3HOhtTNoLRoCcuwQAvD_BwE",
+      "CreatedAt": "2024-02-19T21:56:52.977",
+      "UpdatedAt": "2024-02-19T21:56:52.977",
+      "CreatedBy": null,
+      "UpdatedBy": null,
+      "IsActive": true,
+      "Status": "available soon",
+      "color":"#E11B70",
+      "ImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Foodpanda_logo_since_2017.jpeg"
+    },
+    {
+      "ID": 35,
+      "Name": "Coffee Wagera",
+      "Description": "We are Unilever.\r\nWe are 127,000 people across the world.",
+      "Location": "London United Kingdom",
+      "PhoneNumber": "0000140",
+      "Url": "https://www.unilever.pk/",
+      "CreatedAt": "2024-02-19T22:00:56.547",
+      "UpdatedAt": "2024-02-19T22:00:56.547",
+      "CreatedBy": null,
+      "color":"#da9ee6",
+      "UpdatedBy": null,
+      "IsActive": true,
+      "Status": "available soon",
+      "ImageUrl": "https://coffeewagera.com/wp-content/uploads/2021/09/CW-Logo-Brown-2.png"
+    },
+    
+    {
+      "ID": 5,
+      "Name": "UNILEVER PAKISTAN LIMITED",
+      "Description": "We are Unilever.\r\nWe are 127,000 people across the world.",
+      "Location": "London United Kingdom",
+      "PhoneNumber": "0000140",
+      "Url": "https://www.unilever.pk/",
+      "CreatedAt": "2024-02-19T22:00:56.547",
+      "UpdatedAt": "2024-02-19T22:00:56.547",
+      "CreatedBy": null,
+      "color":"#8f92db",
+      "UpdatedBy": null,
+      "IsActive": true,
+      "Status": "available soon",
+      "ImageUrl": "https://media.licdn.com/dms/image/C4E12AQFjVRGvzXfQ7w/article-cover_image-shrink_600_2000/0/1595858364695?e=2147483647&v=beta&t=M1cz81QOyrkr1ZhC_bz3M3ARiBx-F12kXbZLl4fWJQU"
+    },
+    
+    {
+      "ID": 4,
+      "Name": "Food Panda",
+      "Description": "Foodpanda is a simple service to order food from a variety of restaurants online.",
+      "Location": "Berlin",
+      "PhoneNumber": "021-432212122",
+      "Url": "https://www.foodpanda.pk/?utm_source=google&utm_medium=cpc&utm_campaign=17130031807&sem_tracker=17130031807&gad_source=1&gclid=CjwKCAiAlcyuBhBnEiwAOGZ2SzJJueH7h8XjlhDDcmRYuMYUMs_1DUawEcUbT78VydNZ3HOhtTNoLRoCcuwQAvD_BwE",
+      "CreatedAt": "2024-02-19T21:56:52.977",
+      "UpdatedAt": "2024-02-19T21:56:52.977",
+      "CreatedBy": null,
+      "UpdatedBy": null,
+      "IsActive": true,
+      "Status": "available soon",
+      "color":"#E11B70",
+      "ImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Foodpanda_logo_since_2017.jpeg"
+    },
+    {
+      "ID": 7,
+      "Name": "Al KARAM",
+      "Description": "The Al Karam Group was founded in March 1986 with a vision to be a provider of innovative textile solutions worldwide.",
+      "Location": "karachi",
+      "PhoneNumber": "+922137130271",
+      "Url": "https://www.alkaramstudio.com/",
+      "CreatedAt": "2024-02-25T21:36:52.677",
+      "UpdatedAt": "2024-02-25T21:36:52.677",
+      "CreatedBy": null,
+      "UpdatedBy": null,
+      "IsActive": true,
+      "color":"#81c5d4",
+
+      "Status": "available soon",
+      "ImageUrl": "https://hyderi.dolmenmalls.com/wp-content/uploads/2022/04/alkaram-studio.png"
+    },{
+      "ID": 32,
+      "Name": "Al KARAM",
+      "Description": "The Al Karam Group was founded in March 1986 with a vision to be a provider of innovative textile solutions worldwide.",
+      "Location": "karachi",
+      "color":"#81c5d4",
+
+      "PhoneNumber": "+922137130271",
+      "Url": "https://www.alkaramstudio.com/",
+      "CreatedAt": "2024-02-25T21:36:52.677",
+      "UpdatedAt": "2024-02-25T21:36:52.677",
+      "CreatedBy": null,
+      "UpdatedBy": null,
+      "IsActive": true,
+      "Status": "available soon",
+      "ImageUrl": "https://hyderi.dolmenmalls.com/wp-content/uploads/2022/04/alkaram-studio.png"
+    },{
+      "ID": 71,
+      "Name": "Al KARAM",
+      "color":"#81c5d4",
+
+      "Description": "The Al Karam Group was founded in March 1986 with a vision to be a provider of innovative textile solutions worldwide.",
+      "Location": "karachi",
+      "PhoneNumber": "+922137130271",
+      "Url": "https://www.alkaramstudio.com/",
+      "CreatedAt": "2024-02-25T21:36:52.677",
+      "UpdatedAt": "2024-02-25T21:36:52.677",
+      "CreatedBy": null,
+      "UpdatedBy": null,
+      "IsActive": true,
+      "Status": "available soon",
+      "ImageUrl": "https://hyderi.dolmenmalls.com/wp-content/uploads/2022/04/alkaram-studio.png"
+    },
+    {
+      "ID": 44,
+      "Name": "Food Panda",
+      "Description": "Foodpanda is a simple service to order food from a variety of restaurants online.",
+      "Location": "Berlin",
+      "PhoneNumber": "021-432212122",
+      "Url": "https://www.foodpanda.pk/?utm_source=google&utm_medium=cpc&utm_campaign=17130031807&sem_tracker=17130031807&gad_source=1&gclid=CjwKCAiAlcyuBhBnEiwAOGZ2SzJJueH7h8XjlhDDcmRYuMYUMs_1DUawEcUbT78VydNZ3HOhtTNoLRoCcuwQAvD_BwE",
+      "CreatedAt": "2024-02-19T21:56:52.977",
+      "UpdatedAt": "2024-02-19T21:56:52.977",
+      "CreatedBy": null,
+      "UpdatedBy": null,
+      "IsActive": true,
+      "Status": "available soon",
+      "color":"#E11B70",
+      "ImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Foodpanda_logo_since_2017.jpeg"
+    },
+    {
+      "ID": 17,
+      "Name": "Al KARAM",
+      "color":"#81c5d4",
+
+
+      "Description": "The Al Karam Group was founded in March 1986 with a vision to be a provider of innovative textile solutions worldwide.",
+      "Location": "karachi",
+      "PhoneNumber": "+922137130271",
+      "Url": "https://www.alkaramstudio.com/",
+      "CreatedAt": "2024-02-25T21:36:52.677",
+      "UpdatedAt": "2024-02-25T21:36:52.677",
+      "CreatedBy": null,
+      "UpdatedBy": null,
+      "IsActive": true,
+      "Status": "available soon",
+      "ImageUrl": "https://hyderi.dolmenmalls.com/wp-content/uploads/2022/04/alkaram-studio.png"
+    },{
+      "ID": 37,
+      "color":"#81c5d4",
+
+      "Name": "Al KARAM",
+      "Description": "The Al Karam Group was founded in March 1986 with a vision to be a provider of innovative textile solutions worldwide.",
+      "Location": "karachi",
+      "PhoneNumber": "+922137130271",
+      "Url": "https://www.alkaramstudio.com/",
+      "CreatedAt": "2024-02-25T21:36:52.677",
+      "UpdatedAt": "2024-02-25T21:36:52.677",
+      "CreatedBy": null,
+      "UpdatedBy": null,
+      "IsActive": true,
+      "Status": "available soon",
+      "ImageUrl": "https://hyderi.dolmenmalls.com/wp-content/uploads/2022/04/alkaram-studio.png"
+    },{
+      "ID": 73,
+      "color":"#81c5d4",
+
+      "Name": "Al KARAM",
+      "Description": "The Al Karam Group was founded in March 1986 with a vision to be a provider of innovative textile solutions worldwide.",
+      "Location": "karachi",
+      "PhoneNumber": "+922137130271",
+      "Url": "https://www.alkaramstudio.com/",
+      "CreatedAt": "2024-02-25T21:36:52.677",
+      "UpdatedAt": "2024-02-25T21:36:52.677",
+      "CreatedBy": null,
+      "UpdatedBy": null,
+      "IsActive": true,
+      "Status": "available soon",
+      "ImageUrl": "https://hyderi.dolmenmalls.com/wp-content/uploads/2022/04/alkaram-studio.png"
+    },{
+      "ID": 24,
+      "Name": "Al KARAM",
+      "color":"#81c5d4",
+
+      "Description": "The Al Karam Group was founded in March 1986 with a vision to be a provider of innovative textile solutions worldwide.",
+      "Location": "karachi",
+      "PhoneNumber": "+922137130271",
+      "Url": "https://www.alkaramstudio.com/",
+      "CreatedAt": "2024-02-25T21:36:52.677",
+      "UpdatedAt": "2024-02-25T21:36:52.677",
+      "CreatedBy": null,
+      "UpdatedBy": null,
+      "IsActive": true,
+      "Status": "available soon",
+      "ImageUrl": "https://hyderi.dolmenmalls.com/wp-content/uploads/2022/04/alkaram-studio.png"
+    },{
+      "ID": 22,
+      "color":"#81c5d4",
+
+      "Name": "Al KARAM",
+      "Description": "The Al Karam Group was founded in March 1986 with a vision to be a provider of innovative textile solutions worldwide.",
+      "Location": "karachi",
+      "PhoneNumber": "+922137130271",
+      "Url": "https://www.alkaramstudio.com/",
+      "CreatedAt": "2024-02-25T21:36:52.677",
+      "UpdatedAt": "2024-02-25T21:36:52.677",
+      "CreatedBy": null,
+      "UpdatedBy": null,
+      "IsActive": true,
+      "Status": "available soon",
+      "ImageUrl": "https://hyderi.dolmenmalls.com/wp-content/uploads/2022/04/alkaram-studio.png"
+    }
+  ]

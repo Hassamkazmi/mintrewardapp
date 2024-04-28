@@ -4,6 +4,7 @@ import TabButton from "./Components/TabButton"
 import { NavigationContainer } from '@react-navigation/native';
 import SplashScreen from './Screens/SplashScreen';
 import AuthScreen from './Screens/AuthScreen';
+import BrandDetail from './Screens/BrandDetail';
 
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -18,6 +19,7 @@ const App = () => {
         <Stack.Screen options={{ headerShown: false }} name="Loading" component={SplashScreen} />
         <Stack.Screen options={{ headerShown: false }} name="Login" component={AuthScreen} />
         <Stack.Screen  options={{ headerShown: false }} name="Home" component={TabButton} />
+        <Stack.Screen  options={{ headerShown: true }} name="Detail" component={BrandDetail} />
       </Stack.Navigator>
     </NavigationContainer>
   )

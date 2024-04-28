@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import Svg, { Path } from 'react-native-svg';
+import {Picker} from '@react-native-picker/picker'
 
 const AuthScreen = () => {
   const [isLogin, setIsLogin] = React.useState(true);
@@ -29,6 +29,24 @@ const AuthScreen = () => {
     }
   };
 
+  const gotoGoogle = () => {
+    navigation.navigate("googlelogin");
+  }
+
+  const [categoryList,setCategoryList]=useState([
+    {
+      "id":1,
+      "name":"Male"
+    },
+    {
+      "id":2,
+      "name":"Female"
+    },
+    {
+        "id":2,
+        "name":"Other"
+      }
+  ]);
   return (
     <View style={styles.container}>
       <View style={styles.bg}>
@@ -38,20 +56,20 @@ const AuthScreen = () => {
       
       <View style={styles.main}>
         <View style={styles.formWrapper}>
-          <Text style={styles.formtext}>Login Form</Text>
+          <Text style={styles.formtext}>{isLogin ? "Login" : "Sign Up"} </Text>
 
           <View style={styles.tile}>
             <Text
               style={[styles.tab, isLogin ? styles.activeTab : null]}
               onPress={() => setIsLogin(true)}
             >
-              Login Form
+              Login
             </Text>
             <Text
               style={[styles.tab, !isLogin ? styles.activeTab : null]}
               onPress={() => setIsLogin(false)}
             >
-              Signup Form
+              Sign Up
             </Text>
           </View>
           <View style={styles.formWrap}>
@@ -84,7 +102,7 @@ const AuthScreen = () => {
                     <TouchableOpacity style={styles.socialIcon}>
                       <FontAwesome5 name="twitter" size={24} color="black" />
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.socialIcon}>
+                    <TouchableOpacity  onPress={gotoGoogle} style={styles.socialIcon}>
                       <FontAwesome5 name="google" size={24} color="black" />
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.socialIcon}>
@@ -112,6 +130,19 @@ const AuthScreen = () => {
                   placeholder="Confirm Password"
                   secureTextEntry={true}
                 />
+                 <View style={styles.inputoicker}>
+                 <Picker
+                                   
+              onValueChange={itemValue=>setFieldValue('category',itemValue)}
+            > 
+              {categoryList.length>0&&categoryList?.map((item,index)=>(
+                  <Picker.Item key={index} 
+                  
+                   label={item?.name} value={item?.name} />
+              ))}
+          
+               </Picker>
+                </View>
                 <TouchableOpacity style={styles.btn}>
                   <Text style={styles.btnText}>Signup</Text>
                 </TouchableOpacity>
@@ -136,12 +167,17 @@ const styles = StyleSheet.create({
     height: 300,
     position: "relative",
   },
-  // bgcurve:{
-  //   backgroundColor: '#04790C',
-  //   transform: [{ translateX: '-50%' }],
-  //   height:120,
-  //   borderBottomRightRadius:100
-  // },
+  inputoicker:{
+    borderWidth: 2,
+    borderColor: "#f1f1f1",
+    borderRadius: 15,
+    paddingHorizontal: 10,
+    paddingVertical: 1,
+    marginBottom: 12,
+    fontSize: 15,
+    height:60
+   
+  },
   formtext: {
     textAlign: "center",
     color: "#000",

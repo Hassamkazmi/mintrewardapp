@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Modal, StyleSheet } from 'react-native';
 import { Calendar } from 'react-native-calendars';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import Icon from 'react-native-vector-icons/AntDesign';
+import { RadioButton } from 'react-native-paper'; // Import RadioButton from React Native Paper
 
 const YourComponent = () => {
   const [showCalendar, setShowCalendar] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
+  const [checked, setChecked] = useState(false); // State to track if the radio button is checked
 
   const formatDate = (date) => {
     const day = date.getDate();
@@ -41,9 +43,10 @@ const YourComponent = () => {
 
   return (
     <View style={styles.container}>
+     <Text style={styles.collectiontext}>Next Collection Date</Text>
       <TouchableOpacity onPress={() => setShowCalendar(true)}>
         <View style={styles.dateContainer}>
-          <Text style={styles.collectiontext1}>{selectedDate ? formatDate(selectedDate) : 'Select Date'}</Text>
+        <Icon name="calendar" size={14} color="#000" /> 
         </View>
       </TouchableOpacity>
       <Modal
@@ -60,7 +63,7 @@ const YourComponent = () => {
               hideExtraDays={true} // Only show days of the current month
               onDayPress={handleDayPress}
               markedDates={{
-                [selectedDate ? formatDate(selectedDate) : '']: { selected: true, selectedColor: 'blue' }, // Highlight selected date
+                [selectedDate ? formatDate(selectedDate) : '']: { selected: true, selectedColor: '#000' }, // Highlight selected date
                 ...getDisabledDates(), // Disable dates outside the current week
               }}
               disableAllTouchEventsForDisabledDays={true} // Disable touch events for disabled dates
@@ -68,38 +71,46 @@ const YourComponent = () => {
           </View>
         </View>
       </Modal>
-      <TouchableOpacity>
-        <Icon name="skip-next" style={styles.skipbutton} size={40} color="#000" />
-      </TouchableOpacity>
+      <RadioButton.Android
+          value="checked"
+          status={checked ? 'checked' : 'unchecked'}
+          onPress={() => setChecked(!checked)} // Toggle checked state when pressed
+          color="#000" // Change color as needed
+        />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     flexDirection:"row",
-    justifyContent: 'center',
+    justifyContent: "flex-start",
     alignItems: 'center',
-    margin:5
+    padding:4,
+    backgroundColor:"#fff",
+    marginTop:-10
   },
   collectiontext: {
-    fontSize: 20,
-    color: '#000',
-    fontWeight: '700',
+    fontSize: 14,
+    color: "#000",
+    fontWeight: "400",
+    textAlign:"center",
+    paddingLeft:14
   },
+  
   collectiontext1: {
     fontSize: 16,
-    color: '#000',
+    color: "#000",
     padding: 5,
     fontWeight: '700',
   },
   dateContainer: {
     borderWidth: 1,
-    borderColor: '#000',
-    padding: 10,
+    borderColor: '#fff',
+    padding: 2,
     borderRadius: 5,
-    marginTop: 10,
+    margin:10
   },
   modalContainer: {
     flex: 1,
