@@ -5,18 +5,28 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
+  Modal,
+  Alert
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import {Picker} from '@react-native-picker/picker'
+import { Picker } from '@react-native-picker/picker';
+import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 
 const AuthScreen = () => {
-  const [isLogin, setIsLogin] = React.useState(true);
+  const [isLogin, setIsLogin] = useState(true);
+  const [selectedPlace, setSelectedPlace] = useState(null);
+
+  const [showForgotPasswordModal, setShowForgotPasswordModal] = useState(false);
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const navigation = useNavigation();
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const handleSignUp = () => {
+    Alert.alert("User Created !");
+  }
 
   const handleLogin = () => {
     // Check if username and password are correct
@@ -25,7 +35,7 @@ const AuthScreen = () => {
       navigation.navigate("Home");
     } else {
       // Display error message using Toastify
-      alert("Invalid Credendials");
+      Alert.alert("Invalid Credendials");
     }
   };
 
@@ -33,27 +43,30 @@ const AuthScreen = () => {
     navigation.navigate("googlelogin");
   }
 
-  const [categoryList,setCategoryList]=useState([
-    {
-      "id":1,
-      "name":"Male"
-    },
-    {
-      "id":2,
-      "name":"Female"
-    },
-    {
-        "id":2,
-        "name":"Other"
-      }
-  ]);
+  const handleForgotPassword = () => {
+    setShowForgotPasswordModal(true);
+  };
+
+  const handleResetPassword = () => {
+    // Implement password reset logic here
+    // For example, send a reset password link to the provided email
+    setShowForgotPasswordModal(false);
+    alert(`Reset password link sent to ${email}`);
+  };
+
+  const categoryList = [
+    { id: 1, name: "Male" },
+    { id: 2, name: "Female" },
+    { id: 3, name: "Other" }
+  ];
+
   return (
     <View style={styles.container}>
       <View style={styles.bg}>
         <Text style={styles.heading}>Mint Rewards</Text>
         <Text style={styles.subHeading}>Collect Waste, Earn Rewards</Text>
       </View>
-      
+
       <View style={styles.main}>
         <View style={styles.formWrapper}>
           <Text style={styles.formtext}>{isLogin ? "Login" : "Sign Up"} </Text>
@@ -91,7 +104,7 @@ const AuthScreen = () => {
                 <TouchableOpacity style={styles.btn} onPress={handleLogin}>
                   <Text style={styles.btnText}>Login</Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={handleForgotPassword}>
                   <Text style={styles.forgot}>Forgot password?</Text>
                 </TouchableOpacity>
                 <View style={styles.notMem}>
@@ -102,7 +115,7 @@ const AuthScreen = () => {
                     <TouchableOpacity style={styles.socialIcon}>
                       <FontAwesome5 name="twitter" size={24} color="black" />
                     </TouchableOpacity>
-                    <TouchableOpacity  onPress={gotoGoogle} style={styles.socialIcon}>
+                    <TouchableOpacity onPress={gotoGoogle} style={styles.socialIcon}>
                       <FontAwesome5 name="google" size={24} color="black" />
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.socialIcon}>
@@ -118,8 +131,36 @@ const AuthScreen = () => {
             ) : (
               <View style={styles.formField}>
                 <TextInput style={styles.input} placeholder="User Name" />
-                <TextInput style={styles.input} placeholder="Phone Number" />
-                <TextInput style={styles.input} placeholder="Email Address" />
+                <View style={styles.inputoicker}>
+  <GooglePlacesAutocomplete
+    placeholder="Address"
+    onPress={(data, details = null) => {
+      // 'details' is provided when fetchDetails = true
+      console.log(data, details);
+      setSelectedPlace(details);
+    }}
+    query={{
+      key: "AIzaSyDQ-4RdDhpXqhCeNlHVMbtoZUadRNyaMSI",
+      language: "en",
+    }}
+    styles={{
+      container: {
+        flex: 0,
+      },
+      textInputContainer: {
+        width: "100%",
+      },
+      listView: {
+        position: "absolute",
+        top: -200, // Set the top position
+        zIndex: 9999, // Ensure it appears above other elements
+      },
+    }}
+  />
+</View>
+<TextInput style={styles.input} placeholder="Email Address" />
+<TextInput style={styles.input} placeholder="Phone Number" />
+
                 <TextInput
                   style={styles.input}
                   placeholder="Password"
@@ -130,20 +171,16 @@ const AuthScreen = () => {
                   placeholder="Confirm Password"
                   secureTextEntry={true}
                 />
-                 <View style={styles.inputoicker}>
-                 <Picker
-                                   
-              onValueChange={itemValue=>setFieldValue('category',itemValue)}
-            > 
-              {categoryList.length>0&&categoryList?.map((item,index)=>(
-                  <Picker.Item key={index} 
-                  
-                   label={item?.name} value={item?.name} />
-              ))}
-          
-               </Picker>
+                <View style={styles.inputoicker}>
+                  <Picker
+                    onValueChange={(itemValue) => setFieldValue('category', itemValue)}
+                  >
+                    {categoryList.map((item, index) => (
+                      <Picker.Item key={index} label={item.name} value={item.name} />
+                    ))}
+                  </Picker>
                 </View>
-                <TouchableOpacity style={styles.btn}>
+                <TouchableOpacity style={styles.btn} onPress={handleSignUp}>
                   <Text style={styles.btnText}>Signup</Text>
                 </TouchableOpacity>
               </View>
@@ -151,6 +188,32 @@ const AuthScreen = () => {
           </View>
         </View>
       </View>
+
+      {/* Forgot Password Modal */}
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={showForgotPasswordModal}
+        onRequestClose={() => setShowForgotPasswordModal(false)}
+      >
+        <View style={styles.modalContainer}>
+          <View style={styles.modalContent}>
+            <Text style={styles.modalTitle}>Forgot Password</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Enter your email"
+              value={email}
+              onChangeText={setEmail}
+            />
+            <TouchableOpacity style={styles.btn} onPress={handleResetPassword}>
+              <Text style={styles.btnText}>Reset Password</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => setShowForgotPasswordModal(false)}>
+              <Text style={styles.closeModal}>Close</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };
@@ -165,17 +228,15 @@ const styles = StyleSheet.create({
     paddingTop: 85,
     paddingBottom: 20,
     height: 300,
-    position: "relative",
   },
   inputoicker:{
     borderWidth: 2,
     borderColor: "#f1f1f1",
     borderRadius: 15,
-    paddingHorizontal: 10,
-    paddingVertical: 1,
+    paddingHorizontal: 1,
+    paddingVertical: 2,
     marginBottom: 12,
-    fontSize: 15,
-    height:60
+    fontSize: 13,
    
   },
   formtext: {
@@ -253,6 +314,7 @@ elevation: 24,
     paddingVertical: 5,
     marginBottom: 12,
     fontSize: 15,
+    width:"100%"
   },
   forgot: {
     marginBottom: 15,
@@ -272,6 +334,7 @@ elevation: 24,
     fontSize: 16,
     fontWeight: "600",
     textTransform: "uppercase",
+    padding:8
   },
   notMem: {
     flexDirection: "row",
@@ -299,6 +362,29 @@ elevation: 24,
     borderColor: "black",
     margin: 10,
     borderRadius: 30, // Adjust the value to change the roundness of the border
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+  },
+  modalContent: {
+    backgroundColor: "#FFF",
+    borderRadius: 20,
+    padding: 20,
+    width: "80%",
+    alignItems: "center",
+  },
+  modalTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 20,
+  },
+  closeModal: {
+    marginTop: 20,
+    color: "#007BFF",
+    fontWeight: "bold",
   },
 });
 

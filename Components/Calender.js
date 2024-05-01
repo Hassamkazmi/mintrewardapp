@@ -57,6 +57,11 @@ const YourComponent = () => {
         <View style={styles.modalContainer}>
           <TouchableOpacity style={styles.modalBackground} onPress={() => setShowCalendar(false)} />
           <View style={styles.modalContent}>
+          <View style={styles.pickupheader}>
+            <Text style={styles.pickupname}>Pickup Point </Text>
+            <Text style={styles.pickupaddress}>Malir, Karachi City, Pakistan</Text>
+          </View>
+
             <Calendar
               current={new Date()} // Show the current month by default
               minDate={new Date()} // Set minimum date to the current date
@@ -148,6 +153,26 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.58,
     shadowRadius: 16.0,
     elevation: 24,
+  },
+  
+  pickupheader:{
+    textAlign:"center",
+    backgroundColor:"#004223",
+    padding:10,
+    margin:0
+  },
+  pickupaddress :{
+    textAlign:"center",
+    fontWeight:"700",
+    color:"#fff"
+
+
+  },
+  pickupname:{
+    textAlign:"center",
+    fontWeight:"700",
+    padding:5,
+    color:"#fff"
   },
 });
 

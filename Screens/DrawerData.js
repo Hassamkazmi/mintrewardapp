@@ -72,6 +72,8 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         marginBottom: 20,
-        color:"#000"
+        color:"#000",
+        borderBottomWidth: 2, // Add underline border
+    borderBottomColor: "#004223", // Border color
       },
 })
