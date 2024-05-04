@@ -332,7 +332,7 @@ const styles = StyleSheet.create({
     paddingLeft: 30,
   },
   card: {
-    height: 130,
+    height: 120,
     backgroundColor: "#E6DDC4",
     marginTop: 2,
     flexDirection: "row",

@@ -16,8 +16,8 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Loading">
-        <Stack.Screen options={{ headerShown: false }} name="Loading" component={SplashScreen} />
-        <Stack.Screen options={{ headerShown: false }} name="Login" component={AuthScreen} />
+        {/* <Stack.Screen options={{ headerShown: false }} name="Loading" component={SplashScreen} />
+        <Stack.Screen options={{ headerShown: false }} name="Login" component={AuthScreen} /> */}
         <Stack.Screen  options={{ headerShown: false }} name="Home" component={TabButton} />
         <Stack.Screen  options={{ headerShown: true }} name="Detail" component={BrandDetail} />
       </Stack.Navigator>

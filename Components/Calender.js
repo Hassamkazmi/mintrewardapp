@@ -159,7 +159,8 @@ const styles = StyleSheet.create({
     textAlign:"center",
     backgroundColor:"#004223",
     padding:10,
-    margin:0
+    margin:0, 
+    borderRadius:10
   },
   pickupaddress :{
     textAlign:"center",
