@@ -1,10 +1,26 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import {
+  SafeAreaView,
+  ScrollView,
+  
+  
+  Switch,
+  
+  } from 'react-native';
 import { StyleSheet, Pressable, Text, View, Image, Modal, TextInput, TouchableOpacity, Alert } from "react-native";
-import { FontAwesome5 } from "@expo/vector-icons"; // Import the close icon
-import image from "../assets/bottle.png";
-import { useNavigation } from "@react-navigation/native";
 
-export default  UserProfileView = () => {
+import { FontAwesome5 } from "@expo/vector-icons"; // Import the close icon
+import FeatherIcon from 'react-native-vector-icons/Feather';
+import { useNavigation } from "@react-navigation/native";
+import Ionicons from '@expo/vector-icons/Ionicons';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+export default function Example() {
+  const [form, setForm] = useState({
+    darkMode: false,
+    emailNotifications: true,
+    pushNotifications: false,
+  });
+
   const navigation = useNavigation();
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [oldPassword, setOldPassword] = useState("");
@@ -34,53 +50,168 @@ export default  UserProfileView = () => {
     // Close the modal
     toggleModal();
   };
-
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <View style={styles.headerContent}>
-          <View style={{ flex: 1 }}>
-            <Text style={styles.name}>Welcome</Text>
-            <Text style={styles.userInfo}>Sharyar</Text>
-          </View>
-          <View>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+      <View style={styles.container}>
+        <View style={styles.profile}>
+          <TouchableOpacity
+            onPress={() => {
+              // handle onPress
+            }}>
+            <View style={styles.profileAvatarWrapper}>
             <Image
-              style={styles.avatar}
+              style={styles.profileAvatar}
               source={require("../assets/male.png")}
             />
+                
+
+              <TouchableOpacity
+                onPress={() => {
+                  // handle onPress
+                }}>
+                <View style={styles.profileAction}>
+                  <FeatherIcon
+                    color="#fff"
+                    name="edit-3"
+                    size={15} />
+                </View>
+              </TouchableOpacity>
+            </View>
+          </TouchableOpacity>
+
+          <View>
+            <Text style={styles.profileName}>Sharyar</Text>
+
+            <Text style={styles.profileAddress}>
+              Malir , Karachi
+            </Text>
           </View>
         </View>
-        <View>
-          <Text style={styles.text}>Don't trash it, MINT it!</Text>
-        </View>
-      </View>
 
-      <View style={styles.body}>
-        <Pressable style={styles.RectangleShapeView}>
-          <Text style={styles.headtText}>location</Text>
-          <Text style={styles.SubjectText}>Malir Karachi</Text>
-        </Pressable>
-        <Pressable style={styles.RectangleShapeView}>
-          <Text style={styles.headtText}>Collection Date</Text>
-          <Text style={styles.SubjectText}>30 May, 2024 </Text>
-        </Pressable>
-        <Pressable style={styles.RectangleShapeView}>
-          <Text style={styles.headtText}>Total Collection</Text>
-          <Text style={styles.SubjectText}>43 KG </Text>
-        </Pressable>
-        <View>
-          <Pressable style={styles.btn} onPress={toggleModal}>
-            <Text style={styles.text}>Change Password</Text>
-          </Pressable>
-        </View>
-        <View>
-          <TouchableOpacity style={styles.btn} onPress={logout}>
-            <Text style={styles.text}>Logout</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+        <ScrollView>
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Preferences</Text>
+           
 
-      {/* Modal */}
+            <TouchableOpacity
+              onPress={() => {
+                // handle onPress
+              }}
+              style={styles.row}>
+              <View style={[styles.rowIcon, { backgroundColor: '#32c759' }]}>
+              <Ionicons name="location-sharp" size={20} color="#fff" />
+              </View>
+
+              <Text style={styles.rowLabel}>Location</Text>
+
+              <View style={styles.rowSpacer} />
+
+              <FeatherIcon
+                color="#C6C6C6"
+                name="chevron-right"
+                size={20} />
+            </TouchableOpacity>
+            <TouchableOpacity
+             onPress={toggleModal}
+              style={styles.row}>
+              <View style={[styles.rowIcon, { backgroundColor: '#32c759' }]}>
+              <MaterialIcons name="password" size={20} color="#fff" />
+              </View>
+
+              <Text style={styles.rowLabel}>Change Password</Text>
+
+              <View style={styles.rowSpacer} />
+
+              <FeatherIcon
+                color="#C6C6C6"
+                name="chevron-right"
+                size={20} />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={logout}
+              style={styles.row}>
+              <View style={[styles.rowIcon, { backgroundColor: '#32c759' }]}>
+                <FeatherIcon
+                  color="#fff"
+                  name="navigation"
+                  size={20} />
+              </View>
+
+              <Text style={styles.rowLabel}>Logout</Text>
+
+              <View style={styles.rowSpacer} />
+
+              <FeatherIcon
+                color="#C6C6C6"
+                name="chevron-right"
+                size={20} />
+            </TouchableOpacity>
+
+            
+          </View>
+
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Resources</Text>
+
+            <TouchableOpacity
+              onPress={() => {
+                // handle onPress
+              }}
+              style={styles.row}>
+              <View style={[styles.rowIcon, { backgroundColor: '#8e8d91' }]}>
+                <FeatherIcon color="#fff" name="flag" size={20} />
+              </View>
+
+              <Text style={styles.rowLabel}>Report Bug</Text>
+
+              <View style={styles.rowSpacer} />
+
+              <FeatherIcon
+                color="#C6C6C6"
+                name="chevron-right"
+                size={20} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => {
+                // handle onPress
+              }}
+              style={styles.row}>
+              <View style={[styles.rowIcon, { backgroundColor: '#007afe' }]}>
+                <FeatherIcon color="#fff" name="mail" size={20} />
+              </View>
+
+              <Text style={styles.rowLabel}>Contact Us</Text>
+
+              <View style={styles.rowSpacer} />
+
+              <FeatherIcon
+                color="#C6C6C6"
+                name="chevron-right"
+                size={20} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => {
+                // handle onPress
+              }}
+              style={styles.row}>
+              <View style={[styles.rowIcon, { backgroundColor: '#32c759' }]}>
+                <FeatherIcon color="#fff" name="star" size={20} />
+              </View>
+
+              <Text style={styles.rowLabel}>Rate in App Store</Text>
+
+              <View style={styles.rowSpacer} />
+
+              <FeatherIcon
+                color="#C6C6C6"
+                name="chevron-right"
+                size={20} />
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
+      </View>
       <Modal
         animationType="slide"
         transparent={true}
@@ -124,94 +255,101 @@ export default  UserProfileView = () => {
           </View>
         </View>
       </Modal>
-    </View>
+    </SafeAreaView>
   );
-};
-
+}
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    padding: 0,
+    flexGrow: 1,
+    flexShrink: 1,
+    flexBasis: 0,
   },
-  header: {
-    backgroundColor:"#004223",
-    backgroundSize: "contain",
-    height: 200
+  /** Profile */
+  profile: {
+    padding: 24,
+    backgroundColor: '#fff',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  headerContent: {
-    padding: 30,
-    alignItems: "center",
-    display: "flex",
-    flex: 1,
-    flexDirection: "row",
-    flexWrap: "wrap"
+  profileAvatarWrapper: {
+    position: 'relative',
   },
-  avatar: {
-    width: 100,
-    height: 100,
-    borderRadius: 63,
-    borderWidth: 2,
-    borderColor: "white",
-    marginBottom: 10,
-    float: "right"
+  profileAvatar: {
+    width: 72,
+    height: 72,
+    borderRadius: 9999,
   },
-  name: {
-    fontSize: 22,
-    color: "#fff",
-    fontWeight: "600",
+  profileAction: {
+    position: 'absolute',
+    right: -4,
+    bottom: -10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 28,
+    height: 28,
+    borderRadius: 9999,
+    backgroundColor: '#007bff',
   },
-  headtText: {
-    color: "grey",
-    fontWeight: "600",
-    float: "left",
-    marginLeft: 20,
-    marginTop: 10
+  profileName: {
+    marginTop: 20,
+    fontSize: 19,
+    fontWeight: '600',
+    color: '#414d63',
+    textAlign: 'center',
   },
-  SubjectText: {
-    color: "black",
-    fontWeight: "550",
+  profileAddress: {
+    marginTop: 5,
     fontSize: 16,
-    float: "left",
-    marginLeft: 20,
-    marginTop: 10
+    color: '#989898',
+    textAlign: 'center',
   },
-  userInfo: {
-    fontSize: 20,
-    color: "white",
-    fontWeight: "600"
+  /** Section */
+  section: {
+    paddingHorizontal: 24,
   },
-  btn: {
-    marginTop: 20,
-    backgroundColor: "#004223",
-    borderRadius: 10,
-    width: 200,
+  sectionTitle: {
+    paddingVertical: 12,
+    fontSize: 12,
+    fontWeight: '600',
+    color: '#9e9e9e',
+    textTransform: 'uppercase',
+    letterSpacing: 1.1,
+  },
+  /** Row */
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
     height: 50,
-    alignItems: "center",
-    padding: "6px",
-    elevation: 3
+    backgroundColor: '#f2f2f2',
+    borderRadius: 8,
+    marginBottom: 12,
+    paddingLeft: 12,
+    paddingRight: 12,
   },
-  body: {
-    backgroundColor: "white",
-    height: 500,
-    alignItems: "center"
+  rowIcon: {
+    width: 32,
+    height: 32,
+    borderRadius: 9999,
+    marginRight: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  text: {
-    color: "white",
-    margin: 14
+  rowLabel: {
+    fontSize: 17,
+    fontWeight: '400',
+    color: '#0c0c0c',
   },
-  RectangleShapeView: {
-    marginTop: 20,
-    width: "80%",
-    height: 80,
-    backgroundColor: "white",
-    color: "black",
-    borderRadius: 10,
-    borderColor: "black",
-    borderWidth: 1,
-    elevation: 3
+  rowSpacer: {
+    flexGrow: 1,
+    flexShrink: 1,
+    flexBasis: 0,
   },
-  // Modal styles
-  modalContainer: {
+   modalContainer: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",

@@ -6,6 +6,7 @@ import Brands from '../Screens/Brands';
 import Profile from '../Screens/Profile';
 import Setting from '../Screens/Setting';
 import { AntDesign } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons';
 
 const BottomTabNavigator = createBottomTabNavigator();
 
@@ -59,13 +60,13 @@ export default function BottomTab() {
         component={Brands}
       />
       <BottomTabNavigator.Screen
-        name="settings"
+        name="Location"
         component={Setting}
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <AntDesign
-              name="setting"
+            <Entypo
+              name="location"
               size={30}
               color={focused ? '#fff' : "black"}
               style={focused ? styles.middleIcon : styles.label}
@@ -74,6 +75,7 @@ export default function BottomTab() {
           ),
         }}
       />
+      
       <BottomTabNavigator.Screen
         name="account"
         component={Profile}
